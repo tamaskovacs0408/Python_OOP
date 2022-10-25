@@ -9,10 +9,10 @@ f"The sum of 3 and 4 is {3 + 4}"
 In *Python* classes can be created with the `class` keyword and the name of the `class` capitalized.
 `class Item:`
 
-The first we need to create inside the `class` is the `__init__` method. (IT IS THE SAME AS THE JAVASCRIPT `contructor`). The `__init__` must have a `self` argument and we can add more args as the `class` we'd like to have. (e.g. name, price etc.). Then we create new "things" from the class and pass the added arguments.
+The first we need to create inside the `class` is the `__init__` method. (IT IS THE SAME AS THE JAVASCRIPT `contructor`). The `__init__` must have a `self` argument and we can add more arguments as the `class` we'd like to have (e.g. name, price etc.). In the arguments we can set default values (`quantity=0`) so we don't have to pass it when we create a new item. Then we create new items from the class and pass the added arguments. 
 ```py
 class Item:
-  def __init__(self, name, price):
+  def __init__(self, name, price, quantity=0):
     self.name = name
     self.price = price
 
