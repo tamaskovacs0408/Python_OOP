@@ -1,5 +1,8 @@
 <h1>Python OOP</h1>
 
+In *Python* we can use the *f string* string formatting, which is the same (?) as *template literals* in JavaScript. Before the line we put the `f` keyword and we put the variables etc inside `{}`'s.
+`f"The sum of 3 and 4 is {3 + 4}"` => The sum of 3 and 4 is 7.
+
 In *Python* classes can be created with the `class` keyword and the name of the `class` capitalized.
 `class Item:`
 
