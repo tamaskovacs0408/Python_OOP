@@ -20,6 +20,9 @@ E.g. `assert price >= 0` => The price must be at least `0`. We can add a message
 
 We created a `pay_rate` argument at the **class level**, but we can access this variable with the instance (`item1`) from the **instance level**, because it starts to find it in its level (instance level) and if it doesn't there it goes up to the class level and access it.
 There is the `__dict__` attribute, that gives all the attributes from the level it's been called and convert them into a `dictionary` (object in JavaScript).
+
+As we create the `pay_rate` and an `apply_discount` method. We access with the `self` keyword to the class level argument (pay_rate), so if we create a new instance, we can modify the pay rate. 
+(E.g. `item2.pay_rate = 0.7`)
 ```py
 class Item:
   pay_rate = 0.8
@@ -31,7 +34,11 @@ class Item:
     self.name = name
     self.price = price
 
+    def apply_discount(self):
+    self.price = self.price * self.pay_rate
+
 item1 = Item("Laptop", 1500)
+
 print(Item.pay_rate) # 0.8 access it at the class level
 print(item1.pay_rate) # 0.8 access it from the instance level
 print(Item.__dict__) # Gives ALL attributes from the class level (Item)
