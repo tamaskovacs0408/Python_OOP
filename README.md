@@ -23,8 +23,10 @@ There is the `__dict__` attribute, that gives all the attributes from the level 
 
 As we create the `pay_rate` and an `apply_discount` method. We access with the `self` keyword to the class level argument (pay_rate), so if we create a new instance, we can modify the pay rate. 
 (E.g. `item2.pay_rate = 0.7`)
+
 If we create an `all` list on the *class level*, we can append every instance we create (`item1`, `item2` etc) to the `all`. We have to create an `Item.all.append(self)` (all is the name of the list, we can give any name) method that append the instances to the list. (The `Item` is the name of the class, that's why its capitalized)
 
+With the `__repr__` we can represents the `class` created instances. We add the `print(Item.all)` which gives back us the instances in the `all` list.
 ```py
 class Item:
   pay_rate = 0.8
@@ -39,9 +41,14 @@ class Item:
     Item.all.append(self)
 
     def apply_discount(self):
-    self.price = self.price * self.pay_rate
+      self.price = self.price * self.pay_rate
+
+    def __repr__(self):
+      return f"Item('{self.name}', {self.price})"
 
 item1 = Item("Laptop", 1500)
+item2 = Item("Phone", 950)
+print(Item.all) # [Item("Laptop", 1500), Item("Phone", 950)]
 
 print(Item.pay_rate) # 0.8 access it at the class level
 print(item1.pay_rate) # 0.8 access it from the instance level
