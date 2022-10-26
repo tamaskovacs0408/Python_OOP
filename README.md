@@ -26,7 +26,7 @@ As we create the `pay_rate` and an `apply_discount` method. We access with the `
 
 If we create an `all` list on the *class level*, we can append every instance we create (`item1`, `item2` etc) to the `all`. We have to create an `Item.all.append(self)` (all is the name of the list, we can give any name) method that append the instances to the list. (The `Item` is the name of the class, that's why its capitalized)
 
-With the `__repr__` we can represents the `class` created instances. We add the `print(Item.all)` which gives back us the instances in the `all` list.
+With the `__repr__` we can represents the `class` created instances. We add the `print(Item.all)` which gives back us the instances in the `all` list. WE can easily identify the instances of the class with this.
 ```py
 class Item:
   pay_rate = 0.8
