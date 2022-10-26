@@ -1,12 +1,8 @@
-from typing_extensions import assert_type
-
-
 class Item:
   def __init__(self, name: str, price: float, quantity: int):
     #Received arguments validation
-      assert price >= 0
-      assert quantity >= 0
-      assert_type(name, str)
+      assert price >= 0, f"Price {price} is not greater or equals to 0."
+      assert quantity >= 0, f"Quantity {quantity} is not greater or equals to 0."
     
     # Assign to self object
       self.name = name
@@ -17,12 +13,9 @@ class Item:
     return self.price * self.quantity
 
 
-item1 = Item("Phone", 100, 2)
-
-print(item1)
+item1 = Item(443, -100, 2)
+print(item1.name)
 
 item2 = Item("Laptop", 1000, 3)
 
 item3 = Item("Camera", 1200, 4)
-
-print(f"The name of the product is {item1.name}.")
