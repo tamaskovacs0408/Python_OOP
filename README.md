@@ -13,12 +13,17 @@ f"The sum of 3 and 4 is {3 + 4}"
 In *Python* classes can be created with the `class` keyword and the name of the `class` capitalized.
 `class Item:`
 
-The first we need to create inside the `class` is the `__init__` method. (IT IS THE SAME AS THE JAVASCRIPT `contructor`). The `__init__` must have a `self` argument and we can add more arguments as the `class` we'd like to have (e.g. name, price etc.). In the arguments we can set default values (`quantity=0`) so we don't have to pass it when we create a new item. We can add the type of the arguments like this: `(name: str, price: int)`. Then we create new items from the class and pass the added arguments. (But we can add attributes the `item1.has_numpad = True` way too)
+The first we need to create inside the `class` is the `__init__` method. (IT IS THE SAME AS THE JAVASCRIPT `contructor`). The `__init__` must have a `self` argument and we can add more arguments as the `class` we'd like to have (e.g. name, price etc.). In the arguments we can set default values (`quantity=0`) so we don't have to pass it when we create a new item. We can add the type of the arguments like this: `(name: str, price: int)`. Then we create new instances from the class and pass the added arguments. (But we can add attributes the `item1.has_numpad = True` way too)
 
 We can "validate" the arguments (e.g. price and quantity cannot be minus) with the `assert` keyword. 
 E.g. `assert price >= 0` => The price must be at least `0`. We can add a message as `AssertionError` after the "validation". (`f"Price {price} is not greater or equals to 0."`)
+
+We created a `pay_rate` argument at the **class level**, but we can access this variable with the instance (`item1`) from the **instance level**, because it starts to find it in its level (instance level) and if it doesn't there it goes up to the class level and access it.
+There is the `__dict__` attribute, that gives all the attributes from the level it's been called and convert them into a `dictionary` (object in JavaScript).
 ```py
 class Item:
+  pay_rate = 0.8
+
   def __init__(self, name, price, quantity=0):
     assert price >= 0, f"Price {price} is not greater or equals to 0."
 
@@ -27,6 +32,10 @@ class Item:
     self.price = price
 
 item1 = Item("Laptop", 1500)
+print(Item.pay_rate) # 0.8 access it at the class level
+print(item1.pay_rate) # 0.8 access it from the instance level
+print(Item.__dict__) # Gives ALL attributes from the class level (Item)
+print(item1.__dict__) # Gives ALL attributes from the instance level (item1)
 ```
 
 Functions (`def functionName()`) that are created inside `class`es is called *methods*. The method must have a parameter called `self`. (`self` is like `this` in JavaScript)
