@@ -2,7 +2,7 @@
 
 **Python Virtual Environment**
 
-To install Python modules and libraries we have to create a virtual environment (*venv*). In the terminal type the following code: `python -m venv projectFolderPath/venv` . This creates a *venv* folder in the project folder. (It's worthy to put this folder into the `.gitignore` file) After this open a new terminal and we can easily install the libraries with the `pip install libraryName` command.
+To install Python modules and libraries we have to create a virtual environment (`venv`). In the terminal type the following code: `python -m venv projectFolderPath/venv` . This creates a `venv` folder in the project folder. (It's worthy to put this folder into the `.gitignore` file) After this open a new terminal and we can easily install the libraries with the `pip install libraryName` command.
 
 In *Python* we can use the *f string* string formatting, which is the same (?) as *template literals* in JavaScript. Before the line we put the `f` keyword and we put the variables etc inside `{}`'s.
 ```py
