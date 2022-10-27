@@ -9,6 +9,7 @@ In *Python* we can use the *f string* string formatting, which is the same (?) a
 f"The sum of 3 and 4 is {3 + 4}"
 # The sum of 3 and 4 is 7
 ```
+To work with `csv` files we need to import the `csv` library. (`import csv`)
 
 In *Python* classes can be created with the `class` keyword and the name of the `class` capitalized.
 `class Item:`
@@ -27,6 +28,8 @@ As we create the `pay_rate` and an `apply_discount` method. We access with the `
 If we create an `all` list on the *class level*, we can append every instance we create (`item1`, `item2` etc) to the `all`. We have to create an `Item.all.append(self)` (all is the name of the list, we can give any name) method that append the instances to the list. (The `Item` is the name of the class, that's why its capitalized)
 
 With the `__repr__` we can represents the `class` created instances. We add the `print(Item.all)` which gives back us the instances in the `all` list. WE can easily identify the instances of the class with this.
+
+With the `@classmethod` we can create class methods. It takes the `cls` argument, because when we call this method, the `class` object itself will be the first argument in the background.
 ```py
 class Item:
   pay_rate = 0.8
