@@ -55,7 +55,11 @@ class Item:
         items = list(reader)
     
       for item in items:
-        print(item)
+        Item(
+                name=item.get('name'),
+                price=float(item.get('price')),
+                quantity=int(item.get('quantity')),
+            )
 
     def __repr__(self):
       return f"Item('{self.name}', {self.price})"
@@ -68,7 +72,7 @@ print(Item.pay_rate) # 0.8 access it at the class level
 print(item1.pay_rate) # 0.8 access it from the instance level
 print(Item.__dict__) # Gives ALL attributes from the class level (Item)
 print(item1.__dict__) # Gives ALL attributes from the instance level (item1)
-Item.instantiate_from_csv() # prints the csv data in dictionaries (key - value pairs)
+Item.instantiate_from_csv() # it should gice back the items form the csv file, but for sume unknown reason it cannot convert the string into float/integer, because it thinks that there is not input data...
 ```
 
 Functions (`def functionName()`) that are created inside `class`es is called *methods*. The method must have a parameter called `self`. (`self` is like `this` in JavaScript)
