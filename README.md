@@ -30,6 +30,9 @@ If we create an `all` list on the *class level*, we can append every instance we
 With the `__repr__` we can represents the `class` created instances. We add the `print(Item.all)` which gives back us the instances in the `all` list. WE can easily identify the instances of the class with this.
 
 With the `@classmethod` we can create class methods. It takes the `cls` argument, because when we call this method, the `class` object itself will be the first argument in the background.
+This should also do something that has a relationship with the class, but usually, those are used to manipulate different structures of data to instantiate objects, like we have done with CSV.
+
+The `@staticmethod` should do something that has a relationship with the class, but not something that must be unique per instance!
 ```py
 import csv
 
