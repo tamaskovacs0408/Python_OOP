@@ -31,6 +31,8 @@ With the `__repr__` we can represents the `class` created instances. We add the 
 
 With the `@classmethod` we can create class methods. It takes the `cls` argument, because when we call this method, the `class` object itself will be the first argument in the background.
 ```py
+import csv
+
 class Item:
   pay_rate = 0.8
   all = []
@@ -46,6 +48,15 @@ class Item:
     def apply_discount(self):
       self.price = self.price * self.pay_rate
 
+    @classmethod
+    def instantiate_from_csv(cls):
+      with open('items.csv', 'r') as f:
+        reader = csv.DictReader(f)
+        items = list(reader)
+    
+      for item in items:
+        print(item)
+
     def __repr__(self):
       return f"Item('{self.name}', {self.price})"
 
@@ -57,6 +68,7 @@ print(Item.pay_rate) # 0.8 access it at the class level
 print(item1.pay_rate) # 0.8 access it from the instance level
 print(Item.__dict__) # Gives ALL attributes from the class level (Item)
 print(item1.__dict__) # Gives ALL attributes from the instance level (item1)
+Item.instantiate_from_csv() # prints the csv data in dictionaries (key - value pairs)
 ```
 
 Functions (`def functionName()`) that are created inside `class`es is called *methods*. The method must have a parameter called `self`. (`self` is like `this` in JavaScript)
